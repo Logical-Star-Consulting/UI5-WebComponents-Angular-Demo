@@ -1,0 +1,24 @@
+<section>
+<ui5-shellbar primary-title="Logical Star" secondary-title="Document Builder">
+  <ui5-button #startButton icon="menu" slot="startButton" id="startButton"></ui5-button>
+  <ui5-button #startButton (click)="onClearButtonClick()" icon="clear-all" id="clearButton" tooltip="Clear">Clear</ui5-button>
+</ui5-shellbar>
+<ui5-side-navigation #sideMenu class="sideMenu">
+  <ui5-side-navigation-item text="Texts" icon="document-text">
+    <ui5-side-navigation-sub-item text = "Add Default Text" title="Add Default Text">
+    </ui5-side-navigation-sub-item>
+  </ui5-side-navigation-item>
+</ui5-side-navigation>
+</section>
+<aside class="document">
+ <div id="docBody" cdkDropList #documentList="cdkDropList" [cdkDropListData]="docBody" (cdkDropListDropped)="drop($event)">
+   <div *ngFor="let item of docBody" cdkDrag>
+      <div *ngIf="item.type === 'text'">
+        <form class="documentItem">
+          <ui5-title level="H3">Default Text</ui5-title>
+          {{item.data}}
+        </form>
+      </div>
+   </div>
+</div>
+</aside>
