@@ -1,24 +1,58 @@
-<section>
-<ui5-shellbar primary-title="Logical Star" secondary-title="Document Builder">
-  <ui5-button #startButton icon="menu" slot="startButton" id="startButton"></ui5-button>
-  <ui5-button #startButton (click)="onClearButtonClick()" icon="clear-all" id="clearButton" tooltip="Clear">Clear</ui5-button>
-</ui5-shellbar>
-<ui5-side-navigation #sideMenu class="sideMenu">
-  <ui5-side-navigation-item text="Texts" icon="document-text">
-    <ui5-side-navigation-sub-item text = "Add Default Text" title="Add Default Text">
-    </ui5-side-navigation-sub-item>
-  </ui5-side-navigation-item>
-</ui5-side-navigation>
+<section class="pageHeader">
+  <ui5-shellbar primary-title="Logical Star" secondary-title="Document Builder">
+    <ui5-button #startButton icon="menu" slot="startButton" id="startButton"></ui5-button>
+    <ui5-button #printButton onClick="window.print()" icon="print" id="printButton" tooltip="Print">Clear
+    </ui5-button>
+    <ui5-button #clearButton (click)="onClearButtonClick()" icon="clear-all" id="clearButton" tooltip="Clear">Clear
+    </ui5-button>
+  </ui5-shellbar>
 </section>
-<aside class="document">
- <div id="docBody" cdkDropList #documentList="cdkDropList" [cdkDropListData]="docBody" (cdkDropListDropped)="drop($event)">
-   <div *ngFor="let item of docBody" cdkDrag>
-      <div *ngIf="item.type === 'text'">
-        <form class="documentItem">
-          <ui5-title level="H3">Default Text</ui5-title>
-          {{item.data}}
-        </form>
+<section class="pageBody">
+
+  <ui5-side-navigation #sideMenu class="sideMenu" (selection-change)="onSideNavigationSelection($event)">
+    <ui5-side-navigation-item text="Texts" icon="document-text">
+      <ui5-side-navigation-sub-item text="Add Default Text" title="Add Default Text">
+      </ui5-side-navigation-sub-item>
+      <ui5-side-navigation-sub-item text="Add Free Text" title="Add Free Text">
+      </ui5-side-navigation-sub-item>
+    </ui5-side-navigation-item>
+    <ui5-side-navigation-item text="Images" icon="picture">
+      <ui5-side-navigation-sub-item text="Add UI5 Logo" title="Add UI5 Logo">
+      </ui5-side-navigation-sub-item>
+    </ui5-side-navigation-item>
+    <ui5-side-navigation-item text="Calculators" icon="simulate">
+      <ui5-side-navigation-sub-item text="Simple Calculator" title="Simple Calculator">
+      </ui5-side-navigation-sub-item>
+    </ui5-side-navigation-item>
+  </ui5-side-navigation>
+
+  <aside class="document">
+    <ui5-title level="H1">Document Builder</ui5-title>
+    <div id="documentBody" cdkDropList #documentList="cdkDropList" [cdkDropListData]="docBody"
+      (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of docBody" cdkDrag>
+        <div *ngIf="item.type === 'staticText'">
+          <form class="documentItem">
+            <ui5-title level="H3">Default Text</ui5-title>
+            {{item.data}}
+          </form>
+        </div>
+        <div *ngIf="item.type === 'image'">
+          <form class="documentItem">
+            <app-doc-image ngDefaultControl [item]="item"></app-doc-image>
+          </form>
+        </div>
+        <div *ngIf="item.type === 'freeText'" >
+          <form class="documentItem">
+            <app-free-text-input></app-free-text-input>
+          </form>
+        </div>
+        <div *ngIf="item.type === 'calculator'" >
+          <form class="documentItem">
+            <app-simple-calculator ngDefaultControl [item]="item"></app-simple-calculator>
+          </form>
+        </div>
       </div>
-   </div>
-</div>
-</aside>
+    </div>
+  </aside>
+</section>

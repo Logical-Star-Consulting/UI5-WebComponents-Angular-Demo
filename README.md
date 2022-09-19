@@ -1,9 +1,16 @@
 # Angular Based UI5 Web Components Demo
-Simple demo project for [UI5 Web Components](https://sap.github.io/ui5-webcomponents/).
+
+A simple demo project for [UI5 Web Components](https://sap.github.io/ui5-webcomponents/) using Angular.io as the web development kit.  
+
+We put together a sample application for a customer to demonstrate UI5 Web Components as a means to consolidate staff applications without the need for SAPUI5/OpenUI5 for non SAP backend applications.  Key outcomes were:
+- Demonstrate the ability to create consistent UI/UX across SAP and non SAP Apps
+- Leverage the existing developer base within the organisation  
+
+If you're thinking about doing something similar or have any questions, please feel free to reach out and see if we can offer you something to assist.
 
 ## Angular Client Version
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.  To install the client run `npm install -g @angular/cli@14.2.2`.
 
 ## Development server
 
