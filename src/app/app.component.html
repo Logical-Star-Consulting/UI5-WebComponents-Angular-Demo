@@ -10,24 +10,24 @@
 <section class="pageBody">
 
   <ui5-side-navigation #sideMenu class="sideMenu" (selection-change)="onSideNavigationSelection($event)">
-    <ui5-side-navigation-item text="Texts" icon="document-text">
+    <ui5-side-navigation-item text="Texts" icon="document-text" class="sideMenuItemTexts">
       <ui5-side-navigation-sub-item text="Add Default Text" title="Add Default Text">
       </ui5-side-navigation-sub-item>
       <ui5-side-navigation-sub-item text="Add Free Text" title="Add Free Text">
       </ui5-side-navigation-sub-item>
     </ui5-side-navigation-item>
-    <ui5-side-navigation-item text="Images" icon="picture">
+    <ui5-side-navigation-item text="Images" icon="picture" class="sideMenuItemImages">
       <ui5-side-navigation-sub-item text="Add UI5 Logo" title="Add UI5 Logo">
       </ui5-side-navigation-sub-item>
     </ui5-side-navigation-item>
-    <ui5-side-navigation-item text="Calculators" icon="simulate">
+    <ui5-side-navigation-item text="Calculators" icon="simulate" class="sideMenuItemCalculators">
       <ui5-side-navigation-sub-item text="Simple Calculator" title="Simple Calculator">
       </ui5-side-navigation-sub-item>
     </ui5-side-navigation-item>
   </ui5-side-navigation>
 
   <aside class="document">
-    <ui5-title level="H1" class="docTitle">Document Builder</ui5-title>
+    <ui5-title level="H1" class="documentTitle">Document Builder</ui5-title>
     <div cdkDropList #documentList="cdkDropList" id="documentBody"  [cdkDropListData]="docBody"
       (cdkDropListDropped)="drop($event)">
       <div *ngFor="let item of docBody" cdkDrag>
