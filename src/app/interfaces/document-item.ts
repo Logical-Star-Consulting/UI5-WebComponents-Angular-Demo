@@ -1,6 +1,6 @@
 import { SimpleCalcData } from "./simple-calc-data";
 
-export type DocumentItemTypes = "image" | "text" | "calculator" | "freeText"
+export type DocumentItemTypes = "image" | "staticText" | "calculator" | "freeText"
 
 export interface DocumentItem {
     id: string,

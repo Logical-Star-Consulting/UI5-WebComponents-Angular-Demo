@@ -1,0 +1,18 @@
+<form ngForm #simpleCalcForm="ngForm"> 
+    <ui5-title level="H3">Simple Calculator</ui5-title>
+    <ui5-label for="summand1Input" required>Summand 1</ui5-label>
+    <ui5-input ngDefaultControl id="summand1Input" [(ngModel)]=$any(item.data).summand1 show-clear-icon name="Summand 1">
+    </ui5-input>
+    <br/>
+    <ui5-label for="summand2Input" required>Summand 2</ui5-label>
+    <ui5-input ngDefaultControl id="summand2Input" [(ngModel)]=$any(item.data).summand2 show-clear-icon name="Summand 2">
+    </ui5-input>
+    <br/>
+    <div *ngIf=$any(item.data).simpleCalcSubmitted>
+        <ui5-label for="totalInput">Total</ui5-label>
+        <ui5-input ngDefaultControl id="totalInput" [(ngModel)]=$any(item.data).total name="Total" readonly></ui5-input>
+        <br/>
+    </div>
+    <br/>
+    <ui5-button (click)="onSimpleCalcSubmit(item)">Calculate</ui5-button>
+</form>

@@ -6,13 +6,20 @@
 
 .document{
     margin-left: 350px;
+    font-family: var(--sapFontHeaderFamily);
 }
 
-.documentItem{
-    width: 750px;
-    max-width: 750px;
+.documentBody {
+    width: 650px;
+    max-width: 650px;
     padding-top: 20px;
+}
+
+.documentItem {
     max-height: 700px;
+    max-width: 650px;
+    width: 650px;
+    padding-top: 20px;
 }
 
 ui5-shellbar::part(root){
