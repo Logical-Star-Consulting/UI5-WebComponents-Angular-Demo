@@ -28,10 +28,35 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Logical Star');
   });
 
-  it('should render title', () => {
+
+  // Check the Document Title
+  it('should render document title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.docTitle')?.textContent).toContain('Document Builder');
+    expect(compiled.querySelector('.documentTitle')?.textContent).toContain('Document Builder');
   });
+
+  // Check Menu Items
+  it('should render menu item for texts', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.sideMenuItemTexts')?.outerHTML).toContain('Texts');
+  });
+
+  it('should render menu item for images', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.sideMenuItemImages')?.outerHTML).toContain('Images');
+  });
+
+  it('should render menu item for calculators', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.sideMenuItemCalculators')?.outerHTML).toContain('Calculators');
+  });
+
 });
