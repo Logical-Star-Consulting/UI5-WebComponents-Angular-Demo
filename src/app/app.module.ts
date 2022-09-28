@@ -23,8 +23,14 @@ import { SimpleCalculatorComponent } from './components/simple-calculator/simple
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule,  
     AppRoutingModule,
+    BrowserAnimationsModule,
+    DragDropModule
+  ],
+  exports: [
+    BrowserModule,
+    FormsModule,  
     BrowserAnimationsModule,
     DragDropModule
   ],

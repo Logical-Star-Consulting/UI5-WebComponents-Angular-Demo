@@ -27,8 +27,8 @@
   </ui5-side-navigation>
 
   <aside class="document">
-    <ui5-title level="H1">Document Builder</ui5-title>
-    <div id="documentBody" cdkDropList #documentList="cdkDropList" [cdkDropListData]="docBody"
+    <ui5-title level="H1" class="docTitle">Document Builder</ui5-title>
+    <div cdkDropList #documentList="cdkDropList" id="documentBody"  [cdkDropListData]="docBody"
       (cdkDropListDropped)="drop($event)">
       <div *ngFor="let item of docBody" cdkDrag>
         <div *ngIf="item.type === 'staticText'">
